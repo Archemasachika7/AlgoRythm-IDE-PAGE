@@ -43,8 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Login Form Submitted');
             console.log('Email:', email);
             console.log('Password:', password);
-
-            // You can add your own front-end validation logic here
         });
     }
 
@@ -61,8 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Name:', name);
             console.log('Email:', email);
             console.log('Password:', password);
-
-            // You can add your own front-end validation logic here
         });
     }
 
