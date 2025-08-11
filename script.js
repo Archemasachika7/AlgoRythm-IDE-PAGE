@@ -15,6 +15,7 @@ const container = document.getElementById('container');
 const registerBtn = document.getElementById('register-btn');
 const loginBtn = document.getElementById('login-btn');
 
+// This logic is for the desktop view with the sliding overlay
 if(registerBtn && loginBtn) {
     registerBtn.addEventListener('click', () => {
         container.classList.add('active');
@@ -25,77 +26,43 @@ if(registerBtn && loginBtn) {
     });
 }
 
-// --- FIREBASE READY FORM SUBMISSION ---
+// --- FORM SUBMISSION LOGIC ---
 
 // Login Form
 const loginForm = document.getElementById('login-form');
 loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevents the page from reloading
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
-    const errorElement = document.getElementById('login-error');
     
-    console.log('Login attempt:', email, password);
-    
-    // ** FIREBASE INTEGRATION: **
-    // import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-    // const auth = getAuth();
-    // signInWithEmailAndPassword(auth, email, password)
-    //   .then((userCredential) => {
-    //     // Signed in
-    //     const user = userCredential.user;
-    //     console.log('User signed in:', user);
-    //     window.location.href = '/dashboard'; // Redirect on success
-    //   })
-    //   .catch((error) => {
-    //     errorElement.textContent = error.message;
-    //   });
+    console.log('Login Form Submitted');
+    console.log('Email:', email);
+    console.log('Password:', password);
+
+    // You can add your own front-end validation logic here
 });
 
 // Registration Form
 const registerForm = document.getElementById('register-form');
 registerForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevents the page from reloading
     const name = document.getElementById('register-name').value;
     const email = document.getElementById('register-email').value;
     const password = document.getElementById('register-password').value;
-    const errorElement = document.getElementById('register-error');
+    
+    console.log('Register Form Submitted');
+    console.log('Name:', name);
+    console.log('Email:', email);
+    console.log('Password:', password);
 
-    console.log('Register attempt:', name, email, password);
-
-    // ** FIREBASE INTEGRATION: **
-    // import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-    // const auth = getAuth();
-    // createUserWithEmailAndPassword(auth, email, password)
-    //   .then((userCredential) => {
-    //     // Signed up
-    //     const user = userCredential.user;
-    //     console.log('User created:', user);
-    //     // You might want to update the profile with the name here
-    //     // Then redirect or show a success message
-    //     container.classList.remove('active'); // Switch to login view
-    //   })
-    //   .catch((error) => {
-    //     errorElement.textContent = error.message;
-    //   });
+    // You can add your own front-end validation logic here
 });
 
-// Social Logins (Example for Google)
-const googleLoginBtn = document.querySelector('.social-google');
-googleLoginBtn.addEventListener('click', (e) => {
-     e.preventDefault();
-     console.log('Google login clicked');
-
-    // ** FIREBASE INTEGRATION: **
-    // import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-    // const auth = getAuth();
-    // const provider = new GoogleAuthProvider();
-    // signInWithPopup(auth, provider)
-    //   .then((result) => {
-    //      const user = result.user;
-    //      console.log('Signed in with Google:', user);
-    //      window.location.href = '/dashboard';
-    //   }).catch((error) => {
-    //      document.getElementById('login-error').textContent = error.message;
-    //   });
+// Social Login Buttons
+const socialButtons = document.querySelectorAll('.social-icons a');
+socialButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('Social login button clicked:', button.className);
+    });
 });
