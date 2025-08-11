@@ -11,24 +11,24 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #0c0c0e;
+    background-color: #0c0c0e; /* Fallback color */
     overflow: hidden;
 }
 
-/* Rive Animation Background */
-#rive-background {
+/* Canvas Background */
+#matrix-bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
-    opacity: 0.6;
+    z-index: 0; /* Behind the content */
 }
 
-/* Main Container */
+/* The rest of the CSS remains exactly the same... */
 .container {
-    position: relative;
+    position: relative; /* Changed to relative to appear above the absolute canvas */
+    z-index: 1; /* Ensure container is on top of the canvas */
     width: 850px;
     height: 550px;
     background-color: rgba(20, 20, 22, 0.75);
@@ -40,6 +40,7 @@ body {
     transition: all 0.5s ease-in-out;
 }
 
+/* ... all other styles from the previous response ... */
 /* Form Styling */
 .form-box {
     position: absolute;
